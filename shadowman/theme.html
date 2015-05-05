@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC 
+"-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+
+<!-- 
+	Theme: Shadowman
+	Version: 20050522
+	Xoops Version: 2.0.x
+	Author: Mark Zolton
+	Site: http://www.zeroculture.org
+
+	Copyright 2005 Mark C. Zolton
+-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+<link rel="alternate" type="application/xml" title="RSS" href="<{$xoops_url}>/backend.php" />
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+<body>
+
+<div id="frame">
+
+	<div id="header">
+			<div id="headerLeft"></div>
+			<div id="headerMiddleLeft"></div>
+			<div id="headerMiddleCenter"></div>
+			<div id="headerMiddleRight"></div>
+			<div id="headerRight"></div>
+	</div><!-- Header -->
+	
+	<div id="enclose">
+	
+		<div id="columnLeft">
+			<!-- Start left blocks loop -->
+        	<{foreach item=block from=$xoops_lblocks}>
+          		<{include file="shadowman/theme_blockleft.html"}>
+        	<{/foreach}>
+        	<!-- End left blocks loop -->	
+		</div><!-- columnLeft -->
+		
+		<{if $xoops_showrblock == 1}>
+		<div id="columnMain">	
+		<{else}>
+		<div id="columnMain2">
+		<{/if}>
+		
+			<!-- Display center blocks if any -->
+        	<{if $xoops_showcblock == 1}>
+        	
+				<!-- Start center-center blocks loop -->
+            	<{foreach item=block from=$xoops_ccblocks}>
+              		<{include file="shadowman/theme_blockcenter_c.html"}>
+            	<{/foreach}>
+            	<!-- End center-center blocks loop -->
+            	
+        	<{/if}>
+        	<!-- End display center blocks -->
+        	
+        	<{$xoops_contents}>
+        	
+        	<!-- Display center blocks if any -->
+        	<{if $xoops_showcblock == 1}>
+        	
+        	<!-- Start center-left blocks loop -->
+              	<{foreach item=block from=$xoops_clblocks}>
+                	<{include file="shadowman/theme_blockcenter_l.html"}>
+              	<{/foreach}>
+            	<!-- End center-left blocks loop -->
+
+            	<!-- Start center-right blocks loop -->
+              	<{foreach item=block from=$xoops_crblocks}>
+                	<{include file="shadowman/theme_blockcenter_r.html"}>
+              	<{/foreach}>
+            	<!-- End center-right blocks loop -->
+            	
+        	<{/if}>
+        	<!-- End display center blocks -->
+        	
+		</div><!-- columnMain -->
+		
+		<{if $xoops_showrblock == 1}>
+			<div id="columnRight">	
+				<!-- Start right blocks loop -->
+        		<{foreach item=block from=$xoops_rblocks}>
+          			<{include file="shadowman/theme_blockright.html"}>
+        		<{/foreach}>
+        		<!-- End right blocks loop -->
+			</div><!-- columnRight -->
+		<{/if}>
+	
+		<div id="footer">
+			<div id="copyright">
+				<{$xoops_meta_copyright}>
+				<{$xoops_footer}>
+			</div>
+		</div><!-- Footer -->
+		
+	</div><!-- Enclose -->
+	
+</div><!-- Frame -->
+
+</body>
+</html>
